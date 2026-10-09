@@ -1,0 +1,11 @@
+# dataset path
+path: /root/autodl-tmp/HazyDet_RFDETR
+train: ./train
+val: ./val
+test: ./test
+
+# number of classes
+nc: 1
+
+# class names
+names: ['ship']
