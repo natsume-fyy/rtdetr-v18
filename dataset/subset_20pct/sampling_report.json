@@ -1,0 +1,103 @@
+{
+  "source_yaml": "/root/autodl-tmp/rtdetr-v18/dataset/data.yaml",
+  "root": "/root/autodl-tmp/HazyDet_YOLO",
+  "seed": 42,
+  "fraction": 0.2,
+  "missing_labels_as_background": 0,
+  "original": {
+    "images": 8000,
+    "background_images": 0,
+    "classes": [
+      {
+        "id": 0,
+        "name": "car",
+        "images": 7963,
+        "boxes": 242195
+      },
+      {
+        "id": 1,
+        "name": "truck",
+        "images": 3647,
+        "boxes": 11626
+      },
+      {
+        "id": 2,
+        "name": "bus",
+        "images": 3781,
+        "boxes": 10730
+      }
+    ]
+  },
+  "subset": {
+    "images": 1600,
+    "background_images": 0,
+    "classes": [
+      {
+        "id": 0,
+        "name": "car",
+        "images": 1593,
+        "boxes": 47598
+      },
+      {
+        "id": 1,
+        "name": "truck",
+        "images": 729,
+        "boxes": 2322
+      },
+      {
+        "id": 2,
+        "name": "bus",
+        "images": 756,
+        "boxes": 2091
+      }
+    ]
+  },
+  "strata": [
+    {
+      "classes": [
+        0
+      ],
+      "original": 2358,
+      "subset": 472
+    },
+    {
+      "classes": [
+        0,
+        1
+      ],
+      "original": 1834,
+      "subset": 367
+    },
+    {
+      "classes": [
+        0,
+        1,
+        2
+      ],
+      "original": 1786,
+      "subset": 357
+    },
+    {
+      "classes": [
+        0,
+        2
+      ],
+      "original": 1985,
+      "subset": 397
+    },
+    {
+      "classes": [
+        1
+      ],
+      "original": 27,
+      "subset": 5
+    },
+    {
+      "classes": [
+        2
+      ],
+      "original": 10,
+      "subset": 2
+    }
+  ]
+}

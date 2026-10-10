@@ -1,0 +1,9 @@
+path: /root/autodl-tmp/HazyDet_YOLO
+train: /root/autodl-tmp/rtdetr-v18/dataset/subset_20pct/train.txt
+val: /root/autodl-tmp/HazyDet_YOLO/images/val
+test: /root/autodl-tmp/HazyDet_YOLO/images/test
+nc: 3
+names:
+- car
+- truck
+- bus
