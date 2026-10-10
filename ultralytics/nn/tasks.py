@@ -10,6 +10,7 @@ import torch
 import torch.nn as nn
 
 from ultralytics.nn.modules import *
+from ultralytics.nn.modules.gsd_contrast import GSDContrastConv
 from ultralytics.nn.extra_modules import *
 from ultralytics.utils import DEFAULT_CFG_DICT, DEFAULT_CFG_KEYS, LOGGER, colorstr, emojis, yaml_load
 from ultralytics.utils.checks import check_requirements, check_suffix, check_yaml
@@ -764,7 +765,7 @@ def parse_model(d, ch, verbose=True, warehouse_manager=None):  # model_dict, inp
                         args[j] = a
 
         n = n_ = max(round(n * depth), 1) if n > 1 else n  # depth gain
-        if m in (Classify, Conv, ConvTranspose, GhostConv, Bottleneck, GhostBottleneck, SPP, SPPF, DWConv, DSConv, Focus,
+        if m in (Classify, Conv, GSDContrastConv, ConvTranspose, GhostConv, Bottleneck, GhostBottleneck, SPP, SPPF, DWConv, DSConv, Focus,
                  BottleneckCSP, C1, C2, C2f, C3, C3TR, C3Ghost, nn.Conv2d, nn.ConvTranspose2d, DWConvTranspose2d, C3x, RepC3,
                  ConvNormLayer, DWRC3, C3_DWR, C2f_DWR, C3_DCNv2_Dynamic, C2f_DCNv2_Dynamic, BasicBlock_DCNv2_Dynamic, BottleNeck_DCNv2_Dynamic,
                  C3_DCNv2, C2f_DCNv2, BasicBlock_DCNv2, BottleNeck_DCNv2, C3_DCNv3, C2f_DCNv3, BasicBlock_DCNv3, BottleNeck_DCNv3,

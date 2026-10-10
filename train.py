@@ -1,3 +1,4 @@
+import argparse
 import warnings, os
 # os.environ["CUDA_VISIBLE_DEVICES"]="-1"    # 代表用cpu训练 不推荐！没意义！ 而且有些模块不能在cpu上跑
 # os.environ["CUDA_VISIBLE_DEVICES"]="0"     # 代表用第一张卡进行训练  0：第一张卡 1：第二张卡
@@ -17,9 +18,14 @@ from ultralytics import RTDETR
 # 但是在val.py的时候精度为0，所以统一改成fp32，原则上没影响，只是存储的位数变多了。
 
 if __name__ == '__main__':
-    model = RTDETR('ultralytics/cfg/models/rt-detr/rtdetr-r18.yaml')
+    parser = argparse.ArgumentParser(description='Train baseline or GSD-enhanced RT-DETR-R18')
+    parser.add_argument('--model', default='ultralytics/cfg/models/rt-detr/rtdetr-r18-gsd-p3p4.yaml')
+    parser.add_argument('--data', default='/root/dataset/dataset_visdrone/data.yaml')
+    parser.add_argument('--name', default='r18_gsd_p3p4')
+    args = parser.parse_args()
+    model = RTDETR(args.model)
     model.load('weights/rtdetr-r18.pt')  # loading pretrain weights
-    model.train(data='/root/dataset/dataset_visdrone/data.yaml',
+    model.train(data=args.data,
                 cache=False,
                 imgsz=640,
                 epochs=300,
@@ -29,5 +35,5 @@ if __name__ == '__main__':
                 # resume='', # last.pt path
                 patience=0, # 设置0代表不早提供，设置30代表精度持续30epoch没有比之前最高的高就早停
                 project='runs/train',
-                name='exp',
+                name=args.name,
                 )
