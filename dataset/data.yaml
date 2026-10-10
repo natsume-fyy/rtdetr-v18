@@ -1,11 +1,11 @@
 # dataset path
-path: /root/autodl-tmp/HazyDet_RFDETR
-train: ./train
-val: ./val
-test: ./test
+path: /root/autodl-tmp/HazyDet_YOLO
+train: ./images/train
+val: ./images/val
+test: ./images/test
 
 # number of classes
-nc: 1
+nc: 3
 
 # class names
-names: ['ship']
+names: ['car','truck','bus']
